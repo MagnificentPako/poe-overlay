@@ -1,0 +1,20 @@
+mod base_window;
+mod log_window;
+
+use leptos::*;
+use log_window::LogWindow;
+
+#[derive(Clone, serde::Serialize, serde::Deserialize, Debug)]
+struct Payload {
+    message: String,
+}
+
+fn main() {
+    console_error_panic_hook::set_once();
+
+    mount_to_body(|| {
+        view! {
+            <LogWindow/>
+        }
+    })
+}
